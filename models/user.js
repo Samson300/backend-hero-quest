@@ -54,6 +54,11 @@ class User {
     }
 
 
+    checkPassword(aPassword) {
+        return bcrypt.compareSync(aPassword, this.password);
+    }
+
+
     async save() {
         const {id} = await db.one(`
 insert into users
