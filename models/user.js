@@ -30,7 +30,7 @@ class User {
     }
 
     static getById(id) {
-        return db.one(`select * from users where id=${id}`)
+        return db.one(`select * from users where id=$1`, [id])
             .then((userData) => {
                 const userInstance = new User(
                     userData.id,
