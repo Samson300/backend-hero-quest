@@ -29,3 +29,4 @@ class User {
         return db.result('delete from users where id=$1', [id]);
     }
 }
+module.exports=User;
