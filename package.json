@@ -4,6 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon index.js",
+    "db:create": "createdb hero-quest",
+    "db:init": "psql -f schema.sql hero-quest && psql -f seed.sql hero-quest",
+    "db:destroy": "dropdb hero-quest",
+    "db:reset": "npm run db:destroy; npm run db:create && npm run db:init",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -16,6 +21,7 @@
     "axios": "^0.18.0",
     "express": "^4.17.1",
     "express-session": "^1.16.1",
+    "pg-promise": "^8.7.2",
     "session-file-store": "^1.2.0"
   }
 }
