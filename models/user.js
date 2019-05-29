@@ -28,5 +28,46 @@ class User {
     static delete(id) {
         return db.result('delete from users where id=$1', [id]);
     }
+
+    static getById(id) {
+        return db.one(`select * from users where id=$1`, [id])
+            .then((userData) => {
+                const userInstance = new User(
+                    userData.id,
+                    userData.first_name,
+                    userData.last_name,
+                    userData.email,
+                    userData.password
+                    );
+                return userInstance;
+            })
+            .catch(() => {
+                return null;
+            })
+    }
+
+
+    setPassword(newPassword) {
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(newPassword, salt);
+        this.password = hash;
+    }
+
+
+    checkPassword(aPassword) {
+        return bcrypt.compareSync(aPassword, this.password);
+    }
+
+
+    async save() {
+        const {id} = await db.one(`
+insert into users
+    (first_name, last_name, email, password)
+values
+    ($1, $2, $3, $4)
+returning id
+        `, [this.first_name, this.last_name, this.email, this.password]);
+        return id;
+    }
 }
 module.exports=User;
