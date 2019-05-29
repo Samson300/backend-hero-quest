@@ -46,6 +46,14 @@ class User {
             })
     }
 
+
+    setPassword(newPassword) {
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(newPassword, salt);
+        this.password = hash;
+    }
+
+
     async save() {
         const {id} = await db.one(`
 insert into users
