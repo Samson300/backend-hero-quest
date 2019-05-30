@@ -15,9 +15,16 @@ const port = 4000;
 //     secret: 'tohardtocrackpqmzjd'
 // }));
 
-app.user(express.json());
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 const userRouter = require('./routers/user');
+
+// const db = require('./models/conn');
+// db.any('select * from users')
+// .then(userArray => {
+//     // userArray.forEach(console.log)
+// })
 
 app.use('/api', userRouter);
 

@@ -8,10 +8,10 @@ const {
 } = require('../controllers/user');
 
 router.get("/", showCreateUser);
-router.post("/", checkIfEmailInUse);
+router.post("/check", checkIfEmailInUse);
 
 router.route('/')
-    .user(create)
+    .post(addUser)
 
 router.route('/:id')
     // .get(getOne)
