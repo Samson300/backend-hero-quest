@@ -15,20 +15,24 @@ async function showCreateUser(req, res) {
 }
 
 async function addUser(req, res) {
-    await User.add(req.body);
-    res.redirect('login')
+    console.log('addUser is getting called')
+    const newUser = await User.add(req.body);
+    res.json(newUser)
+    
+    
 }
 
 async function checkIfEmailInUse(req, res) {
     let theUserData = req.body;
+    console.log(req.body.email);
     let theEmail = escapeHtml(req.body.email);
-    const emailTaken = await User.checkEmail(theUserData);
+    const emailTaken = await User.checkEmail(theEmail);
 
     if (emailTaken === theUserData) {
         await User.add(req.body);
         res.redirect('login');
     } else {
-        res.render("createUser", {
+        res.json({
             message: "Email address already registered, please use a different email or log in with your password at the login page",
             firstName:"",
             lastName:"",

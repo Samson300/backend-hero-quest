@@ -13,8 +13,8 @@ class User {
 
 
     static add(userData) {
-        const firstName = escapeHtml(userData.first_name);
-        const lastName = escapeHtml(userData.last_name);
+        const firstName = ''; //escapeHtml(userData.first_name);
+        const lastName = ''; //escapeHtml(userData.last_name);
         const email = escapeHtml(userData.email);
         const aPassword = escapeHtml(userData.password);
         const hashed = User.hashPass(aPassword);
@@ -85,11 +85,11 @@ class User {
         });
     }
 
-    static checkEmail(userData) {
-        const aEmail = escapeHtml(userData.email);
+    static checkEmail(email) {
+        const aEmail = escapeHtml(email);
         return db.one(`select email from users where email=$1`, [aEmail])
             .catch(() => {
-                return userData;
+                return null;
             });
     }
 
