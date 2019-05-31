@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.538c2e91.chunk.css",
+    "main.js": "/static/js/main.f89b43aa.chunk.js",
+    "main.js.map": "/static/js/main.f89b43aa.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/js/2.71cff70a.chunk.js": "/static/js/2.71cff70a.chunk.js",
+    "static/js/2.71cff70a.chunk.js.map": "/static/js/2.71cff70a.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.461b1a14cc232e53049107292e0e1df6.js": "/precache-manifest.461b1a14cc232e53049107292e0e1df6.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.538c2e91.chunk.css.map": "/static/css/main.538c2e91.chunk.css.map",
+    "static/media/$AH-Dragoon.png": "/static/media/$AH-Dragoon.23b8c70f.png",
+    "static/media/BattleCaveBoss.css": "/static/media/cave-map-true.2710b029.png",
+    "static/media/Battle.css": "/static/media/plains.8f5c1a86.png",
+    "static/media/BattleDungeonBoss.css": "/static/media/sakura_dungeon_05.050429b9.jpg"
+  }
+}
